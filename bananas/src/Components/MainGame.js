@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
-import './images/card.jpg'
+import '../Images/card.jpg'
 
 class MainGame extends Component {
   render() {
