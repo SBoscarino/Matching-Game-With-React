@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import EasyGame from './EasyGame';
 
 class Controls extends Component {
   constructor(){
@@ -11,7 +12,7 @@ class Controls extends Component {
     }
   }
   
-
+//handle button clicks.
   activateEasyDifficultyLevel() {
     this.setState({
       isResetOn: true,
@@ -51,12 +52,9 @@ class Controls extends Component {
  
 
   render() {
-  
-
-    //this needs to be a long if-else. if false, don't show it. if true, show the corresponding button and the reset.
     if (this.state.isToggleOnEasy === false && this.state.isToggleOnMedium === false && this.state.isToggleOnDifficult === false) {
       return(
-        <div className="mode">
+        <div className="mode easyModeActive">
           <h3>Choose a mode:</h3>
           <button onClick={(e) => this.activateEasyDifficultyLevel(e)}>Easy</button>
           <button onClick={(e) => this.activateMediumDifficultyLevel(e)}>Medium</button>
@@ -69,6 +67,7 @@ class Controls extends Component {
         <div className="mode">
           <h3>Easy Difficulty Mode Active</h3>
           <button className="isResetOn" onClick={(e) => this.Reset(e)}>Start Over</button>
+          <EasyGame isToggleOnEasy={this.state.isToggleOnEasy}/>
         </div>
       )
     }
