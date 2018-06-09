@@ -1,0 +1,14 @@
+li {
+    list-style: none;
+}
+.cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.EasyCardImg {
+    height: 245px;
+}
+.easyCardsLI {
+    width: 13%;
+}

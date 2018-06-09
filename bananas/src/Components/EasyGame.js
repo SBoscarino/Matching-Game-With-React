@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import aSingleCard from '../Images/card.jpg'
+import aSingleCard from '../Images/card.jpg';
+import '../Style/Cards.css';
 
 class EasyGame extends Component {
   constructor(props){
@@ -17,18 +18,19 @@ class EasyGame extends Component {
     console.log("state in EasyGame:", this.state);
     if (this.state.isToggleOnEasy === true){
       for (let i = 0; i < this.state.cards; i++){
-       this.state.cardDeck.push(<img className="EasyCardsActual" alt="Card" src={aSingleCard}/>)
+       this.state.cardDeck.push(<img className="EasyCardImg" alt="Card" src={aSingleCard}/>)
       };
     }
   
       return (
-        <div className="Cards">
-        <p>Easy Mode Game goes here!</p>
-        {this.state.cardDeck.map((item, i) => {
-          return(
-            <li key={i}>{item}</li>
-          )})
-        });
+        <div className="cards">
+          <div className="cardContainer">
+          {this.state.cardDeck.map((item, i) => {
+            return(
+              <li className="easyCardsLI" key={i}>{item}</li>
+            )})
+          }
+          </div>
         </div>
       );
   }
