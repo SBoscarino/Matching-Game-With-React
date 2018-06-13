@@ -6,20 +6,23 @@ class EasyGame extends Component {
   constructor(props){
     super(props)
     this.state = {
-      isToggleOnEasy: this.props.isToggleOnEasy,
-      cards: 10,
+      selectedImages: this.props.selectedImages, //this contains an array of card backs
+      isToggleOnEasy: this.props.isToggleOnEasy,  //this determines if we can see this component
+      cards: this.props.cards, //this number is set in Controls.js
       cardDeck: []
     }
   }
 
-tellMe(){
+
+flip(){
   console.log(this.state.cardDeck)
+
 }
   //This component only renders if the Easy Mode is active.
   render() {
     //console.log("props in EasyGame:", this.props);
     //console.log("state in EasyGame:", this.state);
-    let arrayOfCardBacks = ['p', 'i', 'k', 'a', 'c', 'p', 'i', 'k', 'a', 'c'];
+    let arrayOfCardBacks = ['p', 'i', 'k', 'a', 'c', 'h', 'p', 'i', 'k', 'a', 'c', 'h'];
     if (this.state.isToggleOnEasy === true){
       for (let i = 0; i < this.state.cards; i++){
        this.state.cardDeck.push(
@@ -31,13 +34,13 @@ tellMe(){
        )
       };
     }
-  
+    console.log(this.state);
       return (
         <div className="cards">
           <div className="cardContainer">
           {this.state.cardDeck.map((item, i) => {
             return(
-              <li className="easyCardsLI" onClick={(e) => this.tellMe(e)} key={i}>{item.frontImg}</li>
+              <li className="easyCardsLI" onClick={(e) => this.flip(e)} key={i}>{item.frontImg}</li>
             )})
           }
           </div>

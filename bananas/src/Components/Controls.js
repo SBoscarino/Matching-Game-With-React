@@ -8,7 +8,9 @@ class Controls extends Component {
       reset: false,
       isToggleOnEasy: false,
       isToggleOnMedium: false,
-      isToggleOnDifficult: false
+      isToggleOnDifficult: false,
+      selectedImages: [],    //when the user selects a game, images are collected here.
+      cards: 0
     }
   }
   
@@ -19,6 +21,8 @@ class Controls extends Component {
       isToggleOnEasy: true,
       isToggleOnMedium: false,
       isToggleOnDifficult: false,
+      selectedImages: [],
+      cards: 12
     })
     console.log(this.state);
   }
@@ -28,6 +32,8 @@ class Controls extends Component {
       isToggleOnEasy: false,
       isToggleOnMedium: true,
       isToggleOnDifficult: false,
+      selectedImages: [],
+      cards: 18
     })
     console.log(this.state);
   }
@@ -37,6 +43,8 @@ class Controls extends Component {
       isToggleOnEasy: false,
       isToggleOnMedium: false,
       isToggleOnDifficult: true,
+      selectedImages: [],
+      cards: 26
     })
     console.log(this.state);
   }
@@ -46,9 +54,19 @@ class Controls extends Component {
       isToggleOnEasy: false,
       isToggleOnMedium: false,
       isToggleOnDifficult: false,
+      selectedImages: [],
+      cards: 0
     })
     console.log(this.state);
   }
+
+  // CardImageSelector(){
+  //   let images = [];
+  //   for (let i = 0; i < cards; i++){
+      
+  //   }
+
+  // }
  
 
   render() {
@@ -67,7 +85,7 @@ class Controls extends Component {
         <div className="mode">
           <h3>Easy Difficulty Mode Active</h3>
           <button className="isResetOn" onClick={(e) => this.Reset(e)}>Start Over</button>
-          <EasyGame isToggleOnEasy={this.state.isToggleOnEasy}/>
+          <EasyGame isToggleOnEasy={this.state.isToggleOnEasy} cards = {this.state.cards} ImagesSelected={this.state.selectedImages}/>
         </div>
       )
     }
