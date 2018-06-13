@@ -60,13 +60,20 @@ class Controls extends Component {
     console.log(this.state);
   }
 
-  // CardImageSelector(){
-  //   let images = [];
-  //   for (let i = 0; i < cards; i++){
-      
-  //   }
+    //work on THIS next time!!
+    //need to randomly select from the cardback images and send them off as props. 
+    //You will send HALF of the total amount needed because each card will be doubled.
+  cardImageSelector(){
+    let allCards = []; //this will hold all image names.
+    let cardsRandomlyChosen = [];
 
-  // }
+    for (i = 0; i < cards/2; i++){
+      this.state.selectedImages.push(<img src={require('../assets/imgs/people/' + cardsRandomlyChosen[i] + '.png')}/>)
+    }
+    this.setState({
+      selectedImages: cardsRandomlyChosen  //set state = the card names.
+    })
+  }
  
 
   render() {
